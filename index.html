@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Denver Sicay | Instructional Designer</title>
+<meta name="description" content="Denver Sicay is an instructional designer with 15+ years designing, facilitating, and evaluating learning for adult learners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2C8F49; --green-a:#23783D; --forest:#031A03; --charcoal:#1C2321;
+    --linen:#F4F5F2; --mist:#E2E4E1; --cream:#F0EBDC; --stone:#D3D3C8;
+    --teal:#225F5B; --amber-d:#9A6508; --sky-d:#2474AD; --bright:#5CC97F;
+    --slate:#5A625C; --border:#C8CBC8;
+    --max:1120px; --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,Arial,sans-serif;color:var(--charcoal);background:var(--linen);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--green-a)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--sky-d);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--charcoal);padding:8px 14px;border-radius:8px;z-index:100}
+  .skip:focus{left:8px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:var(--forest)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .brand{color:var(--cream);font-weight:700;font-size:19px;text-decoration:none;letter-spacing:.2px;white-space:nowrap}
+  .brand span{color:var(--bright)}
+  nav ul{list-style:none;display:flex;gap:28px}
+  nav a{color:#fff;text-decoration:none;font-weight:500;font-size:16px}
+  nav a:hover{color:var(--bright)}
+  .menu-btn{display:none;background:none;border:1px solid #ffffff55;color:#fff;border-radius:8px;padding:6px 12px;font:inherit;font-size:15px;cursor:pointer}
+
+  /* Hero */
+  .hero{padding:96px 0 80px}
+  .kicker{font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green-a);margin-bottom:18px}
+  .hero h1{font-size:clamp(40px,6vw,62px);line-height:1.08;font-weight:700;letter-spacing:-1px;max-width:15ch}
+  .hero h1 em{font-style:normal;color:var(--green-a)}
+  .lead{font-size:clamp(19px,2.2vw,23px);max-width:60ch;margin-top:24px;color:#2f3833}
+  .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+  .btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:600;font-size:17px;text-decoration:none;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--green-a);color:#fff}
+  .btn-primary:hover{background:#1c6532}
+  .btn-ghost{border:2px solid var(--charcoal);color:var(--charcoal)}
+  .btn-ghost:hover{background:var(--charcoal);color:#fff}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:72px}
+  .stat{background:#fff;padding:26px 22px}
+  .stat b{display:block;font-size:40px;font-weight:800;color:var(--teal);line-height:1.1}
+  .stat span{font-size:15px;color:var(--slate)}
+
+  /* Sections */
+  section{padding:88px 0}
+  .alt{background:var(--mist)}
+  h2{font-size:clamp(32px,4vw,42px);font-weight:600;line-height:1.15;letter-spacing:-.5px}
+  .rule{width:56px;height:4px;background:var(--green);border-radius:2px;margin:18px 0 22px}
+  .intro{max-width:62ch;color:#2f3833}
+
+  /* What I do */
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .card{background:#fff;border-radius:var(--r);padding:30px;border:1px solid #dfe2de}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:#fff;font-weight:700;font-size:16px;margin-bottom:18px}
+  .n1{background:var(--green-a)} .n2{background:var(--amber-d)} .n3{background:var(--sky-d)}
+  .card h3{font-size:23px;font-weight:600;margin-bottom:10px;line-height:1.25}
+  .card p{font-size:17px;color:#3a433e}
+
+  /* Work */
+  .work{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:44px}
+  .proj{background:#fff;border-radius:var(--r);border:1px solid #dfe2de;display:flex;flex-direction:column;overflow:hidden}
+  .proj-top{background:var(--forest);color:var(--cream);padding:26px 28px}
+  .proj-top .tag{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--bright)}
+  .proj-top h3{font-size:24px;font-weight:600;line-height:1.25;margin-top:8px;color:#fff}
+  .proj-top .org{font-size:15px;color:var(--stone);margin-top:6px}
+  .proj-body{padding:24px 28px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .row{display:grid;grid-template-columns:92px 1fr;gap:12px;font-size:16.5px}
+  .row dt{font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);padding-top:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{font-size:14px;font-weight:500;background:var(--linen);border:1px solid var(--border);border-radius:999px;padding:4px 12px}
+  .proj-link{margin-top:auto;padding-top:8px;font-weight:600;font-size:16.5px}
+  .proj-link a{text-decoration:none}
+  .proj-link a:hover{text-decoration:underline}
+  .proj-link .note{color:var(--slate);font-weight:500}
+  .feat{grid-column:1/-1}
+  .feat .proj-top{background:var(--green-a)}
+  .feat .proj-top .tag{color:var(--cream)}
+  .feat .proj-top .org{color:#e6efe8}
+
+  .voices{margin-top:10px;border-top:1px solid #e3e6e2;padding-top:22px}
+  .voices h4{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .v{background:var(--linen);border-left:4px solid var(--green);border-radius:10px;padding:18px 20px;margin:0}
+  .v p{font-size:16.5px;line-height:1.55}
+  .v footer{margin-top:10px;font-size:14px;color:var(--slate)}
+  .v footer b{color:var(--charcoal);font-weight:700}
+  @media (max-width:720px){.vgrid{grid-template-columns:1fr}}
+
+  .slides{margin-top:10px;border-top:1px solid #e3e6e2;padding-top:22px}
+  .slides h4{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+  .slides .sub{font-size:16px;color:#3a433e;margin-bottom:16px}
+  .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .slide{margin:0}
+  .slide button{display:block;width:100%;padding:0;border:1px solid #d6dad5;border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in;transition:transform .15s,box-shadow .15s}
+  .slide button:hover{transform:translateY(-2px);box-shadow:0 6px 18px #031a031f}
+  .slide img{display:block;width:100%;height:auto;aspect-ratio:16/9}
+  .slide figcaption{margin-top:10px;font-size:15.5px;line-height:1.45}
+  .slide figcaption b{display:block;color:var(--green-a);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+  dialog.lb{margin:auto;border:none;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%}
+  dialog.lb::backdrop{background:#031a03e6}
+  dialog.lb img{width:100%;height:auto;max-height:78vh;object-fit:contain;border-radius:10px;display:block}
+  dialog.lb p{color:var(--cream);margin-top:12px;font-size:16px}
+  dialog.lb .close{display:block;margin:0 0 10px auto;background:none;border:1px solid #ffffff66;color:#fff;border-radius:999px;padding:6px 16px;font:inherit;font-size:15px;cursor:pointer}
+  @media (max-width:900px){.sgrid{grid-template-columns:1fr}}
+
+  /* About */
+  .about{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start}
+  .about p+p{margin-top:16px}
+  .quote{background:var(--forest);color:var(--cream);border-radius:var(--r);padding:34px}
+  .quote p{font-size:24px;line-height:1.4;font-weight:600}
+  .quote small{display:block;margin-top:16px;color:var(--stone);font-size:15px}
+  .tools{margin-top:28px}
+  .tools h3{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);font-weight:700;margin-bottom:10px}
+
+  /* Experience */
+  .timeline{margin-top:40px;border-left:3px solid var(--border);padding-left:30px;display:grid;gap:34px}
+  .job{position:relative}
+  .job::before{content:"";position:absolute;left:-39px;top:8px;width:15px;height:15px;border-radius:50%;background:var(--green);border:3px solid var(--linen)}
+  .alt .job::before{border-color:var(--mist)}
+  .job .when{font-size:15px;font-weight:600;color:var(--teal)}
+  .job h3{font-size:21px;font-weight:600;line-height:1.3}
+  .job .where{color:var(--slate);font-size:16px}
+  .job p{margin-top:6px;font-size:17px;max-width:70ch}
+
+  /* Credentials */
+  .creds{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  .creds ul{list-style:none;display:grid;gap:14px}
+  .creds li{font-size:17px;padding-left:22px;position:relative}
+  .creds li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:2px;background:var(--green)}
+  .creds li span{display:block;color:var(--slate);font-size:15px}
+
+  /* Contact / footer */
+  .contact{background:var(--forest);color:var(--cream);padding:96px 0 40px}
+  .contact h2{color:#fff}
+  .contact .intro{color:var(--stone)}
+  .contact-grid{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
+  .cbox{background:#ffffff0f;border:1px solid #ffffff22;border-radius:var(--r);padding:20px 24px;min-width:260px}
+  .cbox small{display:block;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--bright);font-weight:700;margin-bottom:4px}
+  .cbox a{color:#fff;font-weight:600;text-decoration:none;font-size:18px;word-break:break-word}
+  .cbox a:hover{text-decoration:underline}
+  .foot{margin-top:72px;padding-top:24px;border-top:1px solid #ffffff22;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:var(--stone)}
+  .foot b{letter-spacing:2px;font-weight:500;text-transform:uppercase}
+
+  @media (max-width:900px){
+    .three,.work,.about,.creds{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .about{gap:32px}
+  }
+  @media (max-width:720px){
+    .menu-btn{display:block}
+    nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:var(--forest);flex-direction:column;gap:0;padding:8px 24px 18px}
+    nav ul.open{display:flex}
+    nav li a{display:block;padding:12px 0;border-bottom:1px solid #ffffff1a}
+    .hero{padding:64px 0 56px}
+    section{padding:64px 0}
+    .row{grid-template-columns:1fr;gap:2px}
+    body{font-size:17px}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Denver Sicay<span>.</span></a>
+    <nav aria-label="Main">
+      <button class="menu-btn" aria-expanded="false" aria-controls="navlist">Menu</button>
+      <ul id="navlist">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="wrap">
+      <p class="kicker">Instructional Designer</p>
+      <h1>I design learning that people <em>actually use.</em></h1>
+      <p class="lead">For 15+ years I've designed, delivered, and measured training for adult learners in federal, corporate, and international settings. I partner with subject matter experts to turn complex material into clear courses, and I check the results so each version gets better.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#work">See my work</a>
+        <a class="btn btn-ghost" href="resume.pdf">Download résumé</a>
+      </div>
+
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><b>15+</b><span>years designing, delivering &amp; evaluating adult learning</span></div>
+        <div class="stat" role="listitem"><b>4</b><span>industries: energy, government, global development &amp; education</span></div>
+        <div class="stat" role="listitem"><b>5</b><span>stakeholder groups: operators, engineers, leaders, HR &amp; contractors</span></div>
+        <div class="stat" role="listitem"><b>1,000+</b><span>employees trained in workshops, onboarding &amp; courses</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section class="alt" aria-labelledby="do-h">
+    <div class="wrap">
+      <h2 id="do-h">What I do</h2>
+      <div class="rule"></div>
+      <p class="intro">Three things, done well, from first conversation to final survey.</p>
+      <div class="three">
+        <div class="card">
+          <div class="num n1" aria-hidden="true">01</div>
+          <h3>Design &amp; develop</h3>
+          <p>Needs analysis, then instructor-led, virtual, and eLearning courses built with ADDIE or SAM in Storyline 360, Rise, and PowerPoint. Accessible and compliant from the start.</p>
+        </div>
+        <div class="card">
+          <div class="num n2" aria-hidden="true">02</div>
+          <h3>Facilitate</h3>
+          <p>Live, in-person and virtual sessions on onboarding, communication, team dynamics, and AI. Certified MBTI® practitioner and SDI facilitator.</p>
+        </div>
+        <div class="card">
+          <div class="num n3" aria-hidden="true">03</div>
+          <h3>Evaluate &amp; improve</h3>
+          <p>Assessments, instructor feedback, and surveys that show what's working, followed by revisions and clear reports for leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <h2 id="work-h">Selected work</h2>
+      <div class="rule"></div>
+      <p class="intro">Three projects, each built around a real problem: what I was asked to solve and what I built.</p>
+
+      <div class="work">
+        <article class="proj feat">
+          <div class="proj-top">
+            <p class="tag">Live workshop · 2026</p>
+            <h3>The Human Side of AI Adoption: What Leaders Must Shift</h3>
+            <p class="org">Greater Richmond Association for Talent Development (GRATD) · Sicay Consulting</p>
+          </div>
+          <div class="proj-body">
+            <dl class="row"><dt>Challenge</dt><dd>Leaders are being asked to roll out AI, but the hard part is people: trust, fear, and new habits.</dd></dl>
+            <dl class="row"><dt>Built</dt><dd>An interactive, in-person workshop designed to feel psychologically safe, with hands-on activities that guide leaders through the people side of AI adoption.</dd></dl>
+            <dl class="row"><dt>Result</dt><dd>Delivered live to GRATD members and evaluated through participant surveys. Participants left feeling validated and more confident leading AI conversations on their own teams.</dd></dl>
+            <div class="chips"><span class="chip">Workshop design</span><span class="chip">Facilitation</span><span class="chip">Evaluation</span><span class="chip">AI adoption</span></div>
+            <div class="slides">
+              <h4>Inside the workshop</h4>
+              <p class="sub">Three slides that show the design: outcomes, a model, then practice. Click any slide to enlarge.</p>
+              <div class="sgrid">
+                <figure class="slide">
+                  <button type="button" data-full="images/workshop-objectives.jpg" data-cap="Four measurable objectives (diagnose, explain, apply, reframe) shaped every activity." aria-label="Enlarge: Start with outcomes"><img src="images/workshop-objectives.jpg" alt="Slide: After our session, you'll be able to diagnose, explain, apply and reframe" loading="lazy" width="1600" height="900"></button>
+                  <figcaption><b>1 · Start with outcomes</b>Four measurable objectives (diagnose, explain, apply, reframe) shaped every activity.</figcaption>
+                </figure>
+                <figure class="slide">
+                  <button type="button" data-full="images/workshop-safe-framework.jpg" data-cap="The SAFE framework turns a hard conversation into four steps leaders can remember." aria-label="Enlarge: Give them a model"><img src="images/workshop-safe-framework.jpg" alt="Slide: The SAFE framework: Surface it, Acknowledge, Facts together, Experiment small" loading="lazy" width="1600" height="900"></button>
+                  <figcaption><b>2 · Give them a model</b>The SAFE framework turns a hard conversation into four steps leaders can remember.</figcaption>
+                </figure>
+                <figure class="slide">
+                  <button type="button" data-full="images/workshop-practice.jpg" data-cap="Pairs role-play real worries and coach each other, so leaders rehearse before it counts." aria-label="Enlarge: Practice with feedback"><img src="images/workshop-practice.jpg" alt="Slide: Practice the SAFE response, a four-step paired role-play with feedback" loading="lazy" width="1600" height="900"></button>
+                  <figcaption><b>3 · Practice with feedback</b>Pairs role-play real worries and coach each other, so leaders rehearse before it counts.</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="voices">
+              <h4>What participants said</h4>
+              <div class="vgrid">
+                <blockquote class="v"><p>“The discussion and facilitation was very memorable and provided great insight!”</p><footer><b>Jane</b> · Learning Experience Designer</footer></blockquote>
+                <blockquote class="v"><p>“I felt validated with my feelings on AI and I feel more confident leading a conversation to start the steps for more integration of AI.”</p><footer><b>Rian</b> · Learning Experience Designer</footer></blockquote>
+                <blockquote class="v"><p>“I usually dread long sessions but this could be longer. So much great information and very relevant!”</p><footer><b>Laura</b> · LXD Manager</footer></blockquote>
+                <blockquote class="v"><p>“Denver was a great facilitator! Well designed program. Very informative and enjoyable.”</p><footer><b>Percy</b> · Associate Director, Business Process Optimization</footer></blockquote>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-top">
+            <p class="tag">Technical training</p>
+            <h3>System Operator Training Program</h3>
+            <p class="org">Dominion Energy · System Operations Center</p>
+          </div>
+          <div class="proj-body">
+            <dl class="row"><dt>Challenge</dt><dd>Operators need precise, compliant training on critical grid operations.</dd></dl>
+            <dl class="row"><dt>Built</dt><dd>10 instructor-led and computer-based courses, designed with SMEs using ADDIE and checked against NERC and PJM standards.</dd></dl>
+            <dl class="row"><dt>Result</dt><dd>Each course is refined using learner assessments and instructor feedback.</dd></dl>
+            <div class="chips"><span class="chip">Storyline 360</span><span class="chip">PowerPoint</span><span class="chip">ADDIE</span><span class="chip">Compliance</span></div>
+            <p class="proj-link"><span class="note">Course content is proprietary. Happy to walk through my process in an interview.</span></p>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-top">
+            <p class="tag">eLearning</p>
+            <h3>Hosting Engaging Webinars</h3>
+            <p class="org">Self-paced course</p>
+          </div>
+          <div class="proj-body">
+            <dl class="row"><dt>Challenge</dt><dd>Webinar audiences tune out fast when the host only presents.</dd></dl>
+            <dl class="row"><dt>Built</dt><dd>An interactive course that packages 10+ years of running virtual training into practical techniques hosts can use right away.</dd></dl>
+            <div class="chips"><span class="chip">Articulate Rise 360</span><span class="chip">Virtual training</span></div>
+            <p class="proj-link"><a href="https://www.youtube.com/watch?v=fpp3k0ybSQ8" target="_blank" rel="noopener">Watch the walkthrough →</a></p>
+          </div>
+        </article>
+
+        </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="alt" aria-labelledby="about-h">
+    <div class="wrap about">
+      <div>
+        <h2 id="about-h">About me</h2>
+        <div class="rule"></div>
+        <p>My work has always started with people. I started designing training as an AmeriCorps curriculum specialist and a Peace Corps Volunteer in Dominica, then spent eleven years at the Federal Highway Administration running onboarding, mentoring, and team workshops for a nationwide workforce.</p>
+        <p>Today I design technical training for System Operators at Dominion Energy, and through Sicay Consulting I help leaders handle the human side of AI adoption. I hold an M.Ed. in Learning Design &amp; Technology and a B.A. in Conflict Analysis &amp; Intervention, both from James Madison University.</p>
+        <div class="tools">
+          <h3>Tools I use</h3>
+          <div class="chips">
+            <span class="chip">Articulate Storyline 360</span><span class="chip">Rise 360</span><span class="chip">PowerPoint</span><span class="chip">Adobe XD</span><span class="chip">Photoshop</span><span class="chip">SharePoint</span><span class="chip">ADDIE</span><span class="chip">SAM</span>
+          </div>
+        </div>
+      </div>
+      <div class="quote">
+        <p>“Good training doesn't just share information. It changes what people do on Monday morning.”</p>
+        <small>How I approach every project</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <h2 id="exp-h">Experience</h2>
+      <div class="rule"></div>
+      <div class="timeline">
+        <div class="job">
+          <p class="when">Aug 2025 – Present</p>
+          <h3>Instructional Designer</h3>
+          <p class="where">Dominion Energy · System Operations Center · Glen Allen, VA</p>
+          <p>Design instructor-led and computer-based System Operator courses that meet NERC, PJM, and company standards.</p>
+        </div>
+        <div class="job">
+          <p class="when">Aug 2026 – Present</p>
+          <h3>AI Adoption Consultant (Part-Time)</h3>
+          <p class="where">Sicay Consulting · Fredericksburg, VA</p>
+          <p>Design and facilitate workshops that help leaders manage the people side of AI adoption.</p>
+        </div>
+        <div class="job">
+          <p class="when">Aug 2014 – Aug 2025</p>
+          <h3>HR Specialist, Training &amp; Development</h3>
+          <p class="where">U.S. DOT · Federal Highway Administration · Washington, DC</p>
+          <p>Directed the agency's nationwide onboarding program, ran monthly orientation for 100+ employees, led SDI and MBTI® workshops, and ran two mentoring cohorts of 60 employees.</p>
+        </div>
+        <div class="job">
+          <p class="when">Jan 2012 – Mar 2014</p>
+          <h3>Youth &amp; Community Development Specialist</h3>
+          <p class="where">U.S. Peace Corps · Commonwealth of Dominica</p>
+          <p>Built a competency model and onboarding workshops for new Volunteers; taught leadership and tech literacy to adult educators.</p>
+        </div>
+        <div class="job">
+          <p class="when">Aug 2010 – Aug 2011</p>
+          <h3>Curriculum Specialist</h3>
+          <p class="where">AmeriCorps · For Love of Children Outdoor Education Center</p>
+          <p>Designed a weekly leadership curriculum with measurable outcomes for 100+ participants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials" class="alt" aria-labelledby="cred-h">
+    <div class="wrap">
+      <h2 id="cred-h">Credentials</h2>
+      <div class="rule"></div>
+      <div class="creds">
+        <div class="card">
+          <h3>Education</h3>
+          <ul style="margin-top:16px">
+            <li>M.Ed., Learning Design &amp; Technology<span>James Madison University · 2025</span></li>
+            <li>Graduate Certificate, eLearning<span>James Madison University · 2022</span></li>
+            <li>B.A., Conflict Analysis &amp; Intervention<span>James Madison University · 2010</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul style="margin-top:16px">
+            <li>Certified MBTI® Practitioner (Step I™ &amp; II™)<span>Myers &amp; Briggs Foundation</span></li>
+            <li>Certified Facilitator, SDI 2.0<span>Core Strengths</span></li>
+            <li>Training Certificate · Designing Virtual Training · Microlearning<span>Association for Talent Development</span></li>
+            <li>Google AI Professional Certificate<span>Google · 2026</span></li>
+            <li>Instructor Development Course · Leadership Development Academy<span>FHWA National Highway Institute</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- CONTACT -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk.</h2>
+    <div class="rule"></div>
+    <p class="intro">I'm open to instructional design roles and to teaching AI and change management. The fastest way to reach me is email.</p>
+    <div class="contact-grid">
+      <div class="cbox"><small>Email</small><a href="mailto:denver.sicay@gmail.com">denver.sicay@gmail.com</a></div>
+      <div class="cbox"><small>LinkedIn</small><a href="https://www.linkedin.com/in/denver-sicay" target="_blank" rel="noopener">linkedin.com/in/denver-sicay</a></div>
+      <div class="cbox"><small>Location</small><span style="font-weight:600;font-size:18px;color:#fff">Fredericksburg, Virginia</span></div>
+    </div>
+    <div class="foot">
+      <span>© 2026 Denver Sicay</span>
+      <b>Designed for people, built for results</b>
+    </div>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Enlarged slide"><button class="close" type="button">Close ✕</button><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+<script>
+  (function(){
+    var lb=document.getElementById('lb'),li=document.getElementById('lb-img'),lc=document.getElementById('lb-cap');
+    document.querySelectorAll('.slide button').forEach(function(b){b.addEventListener('click',function(){
+      li.src=b.dataset.full; li.alt=b.querySelector('img').alt; lc.textContent=b.dataset.cap;
+      if(lb.showModal){lb.showModal();}else{window.location=b.dataset.full;}
+    });});
+    lb.querySelector('.close').addEventListener('click',function(){lb.close();});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
+    var btn=document.querySelector('.menu-btn'), list=document.getElementById('navlist');
+    btn.addEventListener('click',function(){
+      var open=list.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open);
+    });
+    list.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){list.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+  })();
+</script>
+</body>
+</html>
