@@ -38,7 +38,7 @@
   /* Hero */
   .hero{padding:96px 0 80px}
   .kicker{font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green-a);margin-bottom:18px}
-  .hero h1{font-size:clamp(40px,6vw,62px);line-height:1.08;font-weight:700;letter-spacing:-1px;max-width:15ch}
+  .hero h1{font-size:clamp(30px,8vw,62px);line-height:1.08;font-weight:700;letter-spacing:-1px;white-space:nowrap}
   .hero h1 em{font-style:normal;color:var(--green-a)}
   .lead{font-size:clamp(19px,2.2vw,23px);max-width:60ch;margin-top:24px;color:#2f3833}
   .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
@@ -170,6 +170,7 @@
     .row{grid-template-columns:1fr;gap:2px}
     body{font-size:17px}
   }
+  @media (max-width:340px){.hero h1{font-size:26px}}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
@@ -197,7 +198,7 @@
   <div class="hero" id="top">
     <div class="wrap">
       <p class="kicker">Instructional Designer</p>
-      <h1>I design learning that people <em>actually use.</em></h1>
+      <h1>I design learning that<br>people <em>actually use.</em></h1>
       <p class="lead">For 15+ years I've designed, delivered, and measured training for adult learners in federal, corporate, and international settings. I partner with subject matter experts to turn complex material into clear courses, and I check the results so each version gets better.</p>
       <div class="btns">
         <a class="btn btn-primary" href="#work">See my work</a>
